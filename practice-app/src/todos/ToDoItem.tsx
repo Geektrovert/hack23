@@ -39,7 +39,10 @@ export default function TodoItem(todo: ToDo & { dispatch: Dispatch<Actions> }) {
         className="hidden group-hover:flex"
         aria-label="Mark as work in progress"
         onClick={() => {
-          // TODO: dispatch CHANGE_STATUS action, set to 'in-progress'
+          todo.dispatch({
+            type: "CHANGE_STATUS",
+            payload: { id: todo.id, status: "in-progress" },
+          });
         }}
       >
         <Clock3 />

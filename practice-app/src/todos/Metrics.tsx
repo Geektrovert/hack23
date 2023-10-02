@@ -19,8 +19,7 @@ export default function Metrics({ todos }: { todos: ToDo[] }) {
       <div className="py-2 px-4 w-[20%] bg-slate-800 rounded-md">
         <h2 className="text-sm text-slate-100">WIP</h2>
         <p className="text-3xl text-slate-100">
-          {/* TODO: display total count of todos in progress */}
-          {0}
+          {todos.filter((toDo) => toDo.status === "in-progress").length}
         </p>
       </div>
 
