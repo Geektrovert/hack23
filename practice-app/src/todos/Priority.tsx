@@ -8,16 +8,19 @@ import {
 } from "@/components/ui/select";
 import type { Dispatch } from "react";
 import { Actions } from "./reducer";
+import TodoItem from "./ToDoItem";
 
-export function PrioritySelector(
-  props: Pick<ToDo, "priority" | "id"> & { dispatch: Dispatch<Actions> }
-) {
+export function PrioritySelector(todo: ToDo & { dispatch: Dispatch<Actions> }) {
   return (
     <Select
       onValueChange={(value: ToDo["priority"]) => {
         // TODO: update the priority of the todo item
+        todo.dispatch({
+          type: "CHANGE_PRIORITY",
+          payload: { id: todo.id, priority: value },
+        });
       }}
-      defaultValue={props.priority}
+      defaultValue={todo.priority}
     >
       <SelectTrigger className="w-[12ch]">
         <SelectValue placeholder="Theme" />
