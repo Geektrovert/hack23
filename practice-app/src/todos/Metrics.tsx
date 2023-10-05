@@ -27,7 +27,7 @@ export default function Metrics({ todos }: { todos: ToDo[] }) {
         <h2 className="text-sm text-slate-100">Done</h2>
         <p className="text-3xl text-slate-100">
           {/* TODO: display total count of todos that are completed */}
-          {0}
+          {todos.filter((todo) => todo.status === 'complete').length}
         </p>
       </div>
     </div>
