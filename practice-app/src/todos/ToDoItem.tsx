@@ -14,8 +14,6 @@ export default function TodoItem(todo: ToDo & { dispatch: Dispatch<Actions> }) {
         todo.priority === "low" && "border-blue-400",
         todo.priority === "mid" && "border-yellow-400",
         todo.priority === "high" && "border-red-400"
-        // TODO: update this to use the proper border color for priority
-        // i.e.: emerald-400 for complete and amber-400 for in-progress
       )}
     >
       <div

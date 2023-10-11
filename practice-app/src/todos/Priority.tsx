@@ -14,7 +14,6 @@ export function PrioritySelector(todo: ToDo & { dispatch: Dispatch<Actions> }) {
   return (
     <Select
       onValueChange={(value: ToDo["priority"]) => {
-        // TODO: update the priority of the todo item
         todo.dispatch({
           type: "CHANGE_PRIORITY",
           payload: { id: todo.id, priority: value },
