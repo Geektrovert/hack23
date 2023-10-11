@@ -11,9 +11,9 @@ export default function TodoItem(todo: ToDo & { dispatch: Dispatch<Actions> }) {
     <li
       className={cn(
         "flex min-h-[4rem] gap-2 group items-center hover:bg-slate-800 py-2 px-3 rounded-lg border border-solid",
-        "border-slate-100"
-        // TODO: update this to use the proper border color for priority
-        // i.e.: emerald-400 for complete and amber-400 for in-progress
+        todo.priority === "low" && "border-blue-400",
+        todo.priority === "mid" && "border-yellow-400",
+        todo.priority === "high" && "border-red-400"
       )}
     >
       <div
@@ -72,11 +72,7 @@ export default function TodoItem(todo: ToDo & { dispatch: Dispatch<Actions> }) {
         <Trash2 />
       </Button>
 
-      <PrioritySelector
-        id={todo.id}
-        priority={todo.priority}
-        dispatch={todo.dispatch}
-      />
+      <PrioritySelector {...todo} />
     </li>
   );
 }
